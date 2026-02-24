@@ -642,29 +642,41 @@ nav a:hover {
 
 @media (max-width: 768px) {
     .hideMobile {
-        height: auto;
+        height: 100%;
         width: auto;
-        /* Reduzir padding-right (o segundo valor) */
-        /* Exemplo: padding: 5px (cima/baixo) 2px (esq/dir) */
-        padding: 5px 2px;
-
+        
+        /* 
+           Ajuste de Padding: 
+           5px (superior/inferior) 
+           2px (esquerda/direita) -> Reduzido para diminuir o espaço lateral
+        */
+        padding: 5px 0px; 
+        
         font-size: 10px;
         text-align: center;
         display: flex;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
-
-        /* Reduzir o espaço entre os elementos internos */
-        gap: 2px;
-
-        /* Opcional: garantir que não haja margem externa à direita */
-        margin-right: 0;
-        /* Espaçamento entre os elementos */
-        margin-top: 0;
-
+        
+        /* Reduzir o espaço entre os elementos internos (flex items) */
+        gap: 6px;
+        
+        /* Garantir que não haja margem externa nas laterais */
+        margin: 0;
+        
+        /* Opcional: Se ainda houver espaço, forçar largura total reduzindo margem */
+        /* width: 100%; */
     }
-
+    .header {
+            margin-top: 30px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 8px
+        }
 }
+
 
 
 
@@ -749,14 +761,7 @@ nav a:hover {
 
 
 
-    @media (max-width: 768px) {
-        .header {
-            margin-top: 30px;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
-    }
+    
 
     @media (max-width: 768px) {
         #social-floatp {
