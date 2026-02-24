@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+
+
+
+
+
+    <title>Pizzaria e Hamburgueria Star Buller</title>
+</head>
+
+<body>
+
+
+    <section class="fundo">
+
+
+
+
+
+        <header class="header">
+            <img class="logo" src="./assets/img/img-logo.png" alt="img-logo">
+
+            <nav>
+                     <li class="hideMobile"><a href="#">Início</a></li>
+                    <li class="hideMobile"><a href="./pizzas.html">Pizzas</a></li>
+                    <li class="hideMobile"><a href="./hamburguer.html">Hamburguers</a></li>
+                    <li class="hideMobile"><a href="./bebida.html">Bebidas</a></li>
+                </ul><ul id="header-menu">
+               
+
+            </nav>
+
+
+
+        </header>
+
+
+
+
+
+
+        <div class="titulo-texto" data-aos="fade-right" data-aos-delay="600">
+            <h1>Bem vindo a Pizzaria e Hamburgueria<br><span class="cor-titulo"> Star Buller!</span></h1>
+            <h2>O sabor que derrete corações<br>e satisfaz o paladar!</h2>
+        </div>
+
+
+
+        <div class="wrapper">
+            <span class="text-white-medium">
+                Quadra 06, Casa 169, Condominio Lordes, Cidade Ocidental - GO
+            </span>
+
+            <div id="date-span">
+                <span class="text-white-medium">
+                    Seg á Dom - 18:00 às 07:00
+                </span>
+            </div>
+        </div>
+
+        <div id="social-float" style="width: 100%;">
+            <div class="footer-simbolo"
+                style="display: flex; justify-content: center; gap: 40px; background-color: rgb(7, 7, 7); padding: 10px;">
+                <a href="https://api.whatsapp.com/send?phone=556184752125" target="_blank">
+                    <i id="simbolo" class="fa-brands fa-whatsapp fa-4x" style="color: green;"></i>
+                </a>
+                <p class="texto-sociais">Faça o seu pedido</p>
+                <a href="https://www.instagram.com/andypereirabuller/" target="_blank">
+                    <i id="simbolo" class="fa-brands fa-instagram fa-4x" style="color: #f5560c;"></i>
+                </a>
+                <p class="texto-sociais">Intagram</p>
+                <a href="https://www.facebook.com/andy.buller.7" target="_blank">
+                    <i id="simbolo" class="fa-brands fa-facebook fa-4x" style="color: blue"></i>
+                </a>
+                <p class="texto-sociais">facebook</p>
+
+            </div>
+        </div>
+
+
+
+
+
+    </section>
+
+
+
+    <div id="menu">
+
+        <div>
+            <h2 class="texto-menu-pizza">Pizzas</h2>
+
+            <main class="main-container">
+
+                <div class="produto">
+                    <img src="./assets/img/pizza-de-calabresa.jpg" alt="pizza-calabresa" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Pizza de calabresa</p>
+                            <p class="descricao-produto">Massa, molho especial de tomate, mussarela, calabresa e cebola
+                            </p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 39.90</p>
+                                <button class="add-to-cart-btn" data-name="Pizza de Calabresa" data-price="39.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/pizza-de-frango-catupiry.jpg" alt="pizza-calabresa-fraango-catupiry"
+                        class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Pizza de Frango com Catupiry</p>
+                            <p class="descricao-produto">Massa, molho especial de tomate, mussarela, franco e catupiry
+                            </p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 39.90</p>
+                                <button class="add-to-cart-btn" data-name="Pizza de Frango com Catupiry"
+                                    data-price="39.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/pizza-portuguesa.jpg" alt="pizza-portuguesa" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Pizza Portuguesa</p>
+                            <p class="descricao-produto">Massa, molho especial de tomate, mussarela, ovo, presunto,
+                                ervilha
+                                e cebola</p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 39.90</p>
+                                <button class="add-to-cart-btn" data-name="Pizza Portuguesa" data-price="39.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/pizza-carne-seca-catupiry.jpg" alt="pizza-carne-seca-catupiry"
+                        class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Pizza Carne Seca com Catupiry</p>
+                            <p class="descricao-produto">Massa, molho especial de tomate, mussarela, carne seca e
+                                catupiry
+                            </p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 39.90</p>
+                                <button class="add-to-cart-btn" data-name="Pizza Carne Seca com Catupiry"
+                                    data-price="39.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/pizza-mussarela.jpg" alt="pizza-mussarela" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Pizza de Mussarela</p>
+                            <p class="descricao-produto">Massa, molho especial de tomate, mussarela</p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 39.90</p>
+                                <button class="add-to-cart-btn" data-name="Pizza de Mussarela" data-price="39.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/pizza-portuguesa.jpg" alt="pizza-quatro-queijos" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Pizza Quatro Queijos</p>
+                            <p class="descricao-produto">Massa, mussarela, catupiry, provolone e parmesão</p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 39.90</p>
+                                <button class="add-to-cart-btn" data-name="Pizza Quatro Queijos" data-price="39.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </main>
+
+
+        </div>
+
+        <div>
+            <h2 class="texto-menu-pizza">Hambúrguer</h2>
+
+            <main class="main-container">
+
+                <div class="produto">
+                    <img src="./assets/img/hamb-1.png" alt="hambuguer-1" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Hamburguer Especial</p>
+                            <p class="descricao-produto">Pão, hamburguer de carne bovina, alface, tomate e molho
+                                especial
+                            </p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 19.90</p>
+                                <button class="add-to-cart-btn" data-name="Hamburguer Especial" data-price="19.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/hamb-2.png" alt="Hamburguer-2" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Hamburguer Artesanal</p>
+                            <p class="descricao-produto">Pão, hamburguer de carne bovina, alface, tomate e cebola
+                            </p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 29.90</p>
+                                <button class="add-to-cart-btn" data-name="Hamburguer Artesanal" data-price="29.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/hamb-3.png" alt="Hamburguer-3" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Hamburguer Duplo Cheddar</p>
+                            <p class="descricao-produto">Pão, 2 hamburgueres de cheddar, alface, tomate
+                                e cebola</p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 24.90</p>
+                                <button class="add-to-cart-btn" data-name="Hamburguer Duplo Cheddar" data-price="24.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/hamb-4.png" alt="Hamburguer-4" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Hanburguer de Frango</p>
+                            <p class="descricao-produto">Pão, hamburguer de frango, alface, tomate e cebola
+                            </p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 19.90</p>
+                                <button class="add-to-cart-btn" data-name="Hanburguer de Frango" data-price="19.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/hamb-5.png" alt="Hamburguer-5" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Hamburguer X</p>
+                            <p class="descricao-produto">Pão, hamburguer de carne bovina, alface, tomate</p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 19.90</p>
+                                <button class="add-to-cart-btn" data-name="Hamburguer X" data-price="19.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/hamb-6.png" alt="hamburguer-6" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Hamburguer</p>
+                            <p class="descricao-produto">Pão, hamburguer de carne bovina</p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 19.90</p>
+                                <button class="add-to-cart-btn" data-name="Hamburguer" data-price="19.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </main>
+
+
+        </div>
+
+
+
+
+        <div>
+            <h2 class="texto-menu-pizza">Bebidas</h2>
+
+            <main class="main-container">
+
+                <div class="produto">
+                    <img src="./assets/img/coca-cola-lata.jpg" alt="coca-1" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Coca Cola lata</p>
+                            <p class="descricao-produto">Refrigerante de cola em lata de 350ml</p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 4.90</p>
+                                <button class="add-to-cart-btn" data-name="Coca Cola lata" data-price="4.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/fanta-lata.jpg" alt="fanta-1" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Fanta Laranja Lata</p>
+                            <p class="descricao-produto">Refrigerante de laranja em lata de 350ml</p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 4.90</p>
+                                <button class="add-to-cart-btn" data-name="Fanta Laranja Lata" data-price="4.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/fanta-uva-lata.jpg" alt="fanta-2" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Fanta Uva Lata</p>
+                            <p class="descricao-produto">Refrigerante de uva em lata de 350ml</p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 4.90</p>
+                                <button class="add-to-cart-btn" data-name="Fanta Uva Lata" data-price="4.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/guarana-lata.jpg" alt="guarana-1" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Guaraná Lata</p>
+                            <p class="descricao-produto">Refrigerante de guaraná em lata de 350ml</p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 4.90</p>
+                                <button class="add-to-cart-btn" data-name="Guaraná Lata" data-price="4.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/coca-cola-dois-litros.jpg" alt="coca-2l" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Coca Cola 2L</p>
+                            <p class="descricao-produto">Refrigerante de cola em 2L</p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 11.90</p>
+                                <button class="add-to-cart-btn" data-name="Coca Cola 2L" data-price="11.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="produto">
+                    <img src="./assets/img/gurarana-dois-litros.jpg" alt="guarana-2l" class="pizza-img">
+                    <div class="container">
+                        <div class="card-produto">
+                            <p class="titulo-produto">Guaraná 2L</p>
+                            <p class="descricao-produto">Refrigerante de guaraná em 2L</p>
+                            <div class="footer-produto">
+                                <p class="preco-produto">R$ 11.90</p>
+                                <button class="add-to-cart-btn" data-name="Guaraná 2L" data-price="11.90">
+                                    <i class="fa fa-cart-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </main>
+
+
+        </div>
+
+    </div>
+
+    <div>
+
+        <div class="cart-modal" id="cart-modal">
+            <div class="cart-modal-content">
+                <h2 class="cart-modal-title">Meu Carrinho</h2>
+                <div id="cart-items" class="cart-items-container"></div>
+                <p class="cart-total">Total: R$ <span id="cart-total">0.00</span></p>
+
+                <p class="cart-address-label">Endereço de Entrega</p>
+                <input type="text" placeholder="Digite seu endereço completo..." id="address" class="cart-input" />
+                <p class="cart-warn hidden" id="address-warn">Digite seu endereço completo!</p>
+
+                <div class="cart-actions">
+                    <button id="close-modal-btn" class="cart-btn-close">Fechar</button>
+                    <button id="checkout-btn" class="cart-btn-checkout">Finalizar Pedido</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <footer id="footer-cart">
+            <button id="cart-btn">
+                (<span id="cart-count">0</span>)
+                Veja meu Carrinho
+                <i class="fa fa-cart-plus"></i>
+            </button>
+        </footer>
+
+    </div>
+
+    <div class="container-endereco">
+        <h2 class="titulo-endereco"> Meu Endereço </h2>
+    </div>
+
+
+    <iframe width="100%"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.386000278176!2d-47.958487325991655!3d-16.097321030484963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935985a9f0109583%3A0x65514656c18b8bec!2sCondom%C3%ADnio%20Lordes!5e0!3m2!1spt-BR!2sbr!4v1771749143393!5m2!1spt-BR!2sbr"
+        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+
+
+    <script src="./script.js"></script>
+
+
+
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+   
+
+
+
+ <!-- Script do AOS (O motor que faz a animação funcionar) -->
+ <!-- Script do AOS (Caminho COMPLETO corrigido) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, 
+            once: true      
+        });
+    </script>
+</body>
+
+</html>
