@@ -24,27 +24,37 @@
 }
 
 
+/* 1. Altere o header para aceitar conteúdo maior que 80px */
 .header {
-    background-color: none;
-    height: 80px;
+    background-color: transparent; 
+    min-height: 50px; /* Use min-height em vez de height fixo */
+    height: auto;    /* Permite que a logo de 200px "estique" o container */
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 0 5%;
+    align-items: flex-start; /* MUDE DE center PARA flex-start */
+    padding-top: 20px;
+    padding-bottom: 5px;
     text-decoration: none;
     list-style: none;
-
 }
 
-
-.logo {
+/* 2. Ajuste a div da logo */
+#img-logo {
+    display: block !important; 
     width: 200px;
     height: 200px;
-    font-size: 30px;
-    text-decoration: none;
-    border-radius: 50%;
+    
+    position: relative;
+    z-index: 10;
+}
 
+/* 3. Garanta que a imagem preencha a div redonda */
+#logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .cor-titulo {
@@ -54,7 +64,7 @@
 .titulo-texto {
     color: hwb(0 96% 3%);
     font-size: 40px;
-    margin-top: 20px;
+    margin-top: 0;
     margin-left: 20px;
     text-shadow: 2px 2px 4px #000000;
 }
@@ -62,10 +72,7 @@
 
 
 
-.header ul {
-    display: flex;
-    list-style: none;
-}
+
 
 .header ul li {
     padding: 10px 30px;
@@ -162,12 +169,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    : calc(100vh - 80px);
+    
     background-image: url('./assets/img-fundo.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     gap: 10px;
+    padding-top: 10px;
+    
+    
 
 }
 
@@ -182,9 +192,6 @@
     width: 100%;
     /* Se houver um elemento pai limitando a largura, use: */
     min-width: 100vw;
-
-
-
 
     /* Container, centralização e espaçamento */
     max-width: 80rem;
@@ -326,13 +333,7 @@ nav {
 
 }
 
-nav ul {
-    width: 100%;
-    list-style: none;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
+
 
 nav li {
     height: 60px;
@@ -360,10 +361,7 @@ nav a:hover {
     fill: white
 }
 
-.logotipo {
-    font-weight: bold;
-    font-size: 1.6rem;
-}
+
 
 .sidebar {
     position: fixed;
@@ -718,18 +716,7 @@ nav a:hover {
     }
 }
 
-    .logo {
-
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 80rem;
-        /* max-w-7xl = 1280px ou 80rem */
-        padding-left: 0.5rem;
-        /* px-2 = 8px */
-        padding-right: 0.5rem;
-        text-align: center;
-
-    }
+   
 
     .wrapper {
 
@@ -811,9 +798,60 @@ nav a:hover {
             overflow-y: auto;
             /* Adiciona scroll se o conteúdo for grande */
         }
-        .logo {
-            display: none;
-        }
+        
+            /* Container que envolve a imagem */
+@media (max-width: 768px) {
+    .header {
+        position: relative;
+        display: flex;
+        flex-direction: column; /* No mobile, empilha os itens */
+        align-items: center;
+        height: auto;
+        padding-top: 20px;
     }
+
+    /* A LOGO: Centralizada e atrás de tudo */
+    #img-logo {
+        position: absolute; /* Sai do fluxo para não empurrar a nav */
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 150px; /* Reduzi um pouco para o mobile */
+        height: 150px;
+        z-index: 1;    /* VALOR BAIXO: Atrás da nav */
+        margin-top: 0 !important;
+    }
+
+    #logo {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    /* A NAVEGAÇÃO: Na frente da logo */
+    nav {
+        position: relative;
+        z-index: 10;   /* VALOR ALTO: Fica na frente da logo */
+        width: 100%;
+        margin-top: 10px; /* Espaço para não colar no topo */
+    }
+
+    nav ul {
+        flex-direction: row; /* Ou column, dependendo do seu design */
+        justify-content: center;
+        gap: 15px;
+        background-color: rgba(0, 0, 0, 0.4); /* Fundo semi-transparente para ler o menu sobre a logo */
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    /* Ajuste para o texto não ficar embaixo da logo absoluta */
+    .titulo-texto {
+        margin-top: 180px; /* Empurra o "Bem vindo" para baixo da logo */
+    }
+}
+
+    
 
    
