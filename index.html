@@ -479,22 +479,41 @@
 
     <div>
 
-        <div class="cart-modal" id="cart-modal">
-            <div class="cart-modal-content">
-                <h2 class="cart-modal-title">Meu Carrinho</h2>
-                <div id="cart-items" class="cart-items-container"></div>
-                <p class="cart-total">Total: R$ <span id="cart-total">0.00</span></p>
+          <!-- MODAL DO CARRINHO AJUSTADO -->
+    <div class="cart-modal fixed top-0 left-0 w-full h-full bg-black/50 z-[99] items-center justify-center hidden" id="cart-modal">
+        <div class="cart-modal-content bg-white p-5 rounded-md min-w-[90%] md:min-w-[600px] text-black">
+            <h2 class="text-center font-bold text-2xl mb-4">Meu Carrinho</h2>
+            
+            <div id="cart-items" class="cart-items-container max-h-[400px] overflow-y-auto mb-4">
+                <!-- Itens injetados via JS -->
+            </div>
 
-                <p class="cart-address-label">Endereço de Entrega</p>
-                <input type="text" placeholder="Digite seu endereço completo..." id="address" class="cart-input" />
-                <p class="cart-warn hidden" id="address-warn">Digite seu endereço completo!</p>
-
-                <div class="cart-actions">
-                    <button id="close-modal-btn" class="cart-btn-close">Fechar</button>
-                    <button id="checkout-btn" class="cart-btn-checkout">Finalizar Pedido</button>
+            <!-- SEÇÃO DE VALORES COM TAXA -->
+            <div class="border-t border-gray-200 pt-4 flex flex-col gap-1">
+                <div class="flex justify-between items-center text-sm">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">R$ 0,00</span>
+                </div>
+                <div class="flex justify-between items-center text-sm text-gray-500">
+                    <span>Taxa de Entrega:</span>
+                    <span id="cart-delivery-display">R$ 5,00</span>
+                </div>
+                <div class="flex justify-between items-center font-bold text-xl mt-2 mb-4">
+                    <span>Total Geral:</span>
+                    <span id="cart-total">R$ 0,00</span>
                 </div>
             </div>
+
+            <p class="font-bold mt-4">Endereço de Entrega:</p>
+            <input type="text" placeholder="Digite seu endereço completo..." id="address" class="w-full border-2 p-2 rounded my-1 outline-none" />
+            <p class="text-red-500 hidden" id="address-warn">Digite seu endereço completo!</p>
+
+            <div class="flex items-center justify-between mt-5 w-full">
+                <button id="close-modal-btn" class="bg-gray-200 px-4 py-2 rounded">Fechar</button>
+                <button id="checkout-btn" class="bg-green-500 text-white px-4 py-2 rounded font-bold">Finalizar Pedido</button>
+            </div>
         </div>
+    </div>
 
 
 

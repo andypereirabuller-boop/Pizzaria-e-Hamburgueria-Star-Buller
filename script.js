@@ -1,9 +1,11 @@
-// 1. SELEÇÃO DE ELEMENTOS (ID's devem ser idênticos ao HTML)
+// 1. SELEÇÃO DE ELEMENTOS
 const menu = document.getElementById('menu');
 const cartBtn = document.getElementById('cart-btn');
 const cartModal = document.getElementById('cart-modal');
 const cartItemsContainer = document.getElementById('cart-items');
 const cartTotal = document.getElementById('cart-total');
+const cartSubtotal = document.getElementById('cart-subtotal'); // Novo
+const deliveryDisplay = document.getElementById('cart-delivery-display'); // Novo
 const checkoutBtn = document.getElementById('checkout-btn');
 const closeModalBtn = document.getElementById('close-modal-btn');
 const cartCounter = document.getElementById('cart-count');
@@ -11,16 +13,16 @@ const addressInput = document.getElementById('address');
 const addressWarn = document.getElementById('address-warn');
 const spanItem = document.getElementById("date-span");
 
+// CONFIGURAÇÃO DE TAXA
+const deliveryFee = 5.00; 
 
-    
-
-// 2. INICIALIZAÇÃO DO CARRINHO (LocalStorage)
+// 2. INICIALIZAÇÃO DO CARRINHO
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // 3. FUNÇÃO DE ATUALIZAÇÃO DA INTERFACE
 function updateCartVisuals() {
     cartItemsContainer.innerHTML = "";
-    let total = 0;
+    let subtotal = 0;
     let quantity = 0;
 
     cart.forEach(item => {
@@ -36,12 +38,21 @@ function updateCartVisuals() {
                 <button class="remove-btn text-red-500 font-bold" data-name="${item.name}">Remover</button>
             </div>`;
         
-        total += (item.price * item.quantity);
+        subtotal += (item.price * item.quantity);
         quantity += item.quantity;
         cartItemsContainer.appendChild(div);
     });
 
-    cartTotal.innerText = total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    // Lógica da Taxa: Só aplica se houver itens
+    const taxaAplicada = cart.length > 0 ? deliveryFee : 0;
+    const totalComTaxa = subtotal + taxaAplicada;
+
+    // ATUALIZAÇÃO DOS TEXTOS NO MODAL
+    if(cartSubtotal) cartSubtotal.innerText = subtotal.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    if(deliveryDisplay) deliveryDisplay.innerText = taxaAplicada.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    
+    cartTotal.innerText = totalComTaxa.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    
     cartCounter.innerText = quantity;
     localStorage.setItem("cart", JSON.stringify(cart));
 }
@@ -101,9 +112,8 @@ addressInput.addEventListener("input", (e) => {
     }
 });
 
-// 6. FINALIZAR PEDIDO (O ENVIO DEFINITIVO)
+// 6. FINALIZAR PEDIDO
 checkoutBtn.addEventListener("click", () => {
-    // Validação de Horário
     const h = new Date().getHours();
     const isOpen = h >= 18 || h < 7;
 
@@ -121,58 +131,38 @@ checkoutBtn.addEventListener("click", () => {
         return;
     }
 
-    // Gerar Mensagem
-    const itensTexto = cart.map(i => `${i.name} (x${i.quantity})`).join(" | ");
-    const totalPedido = cartTotal.innerText;
-    const msg = `*NOVO PEDIDO*\n\n*Itens:* ${itensTexto}\n*Total:* ${totalPedido}\n*Endereço:* ${addressInput.value}`;
+    // Mensagem WhatsApp
+    const cartItemsText = cart.map(item => `*${item.name}* (x${item.quantity})`).join("\n");
+    const totalFinal = cartTotal.innerText;
+    const phone = "61984752125";
 
+    const message = encodeURIComponent(
+        `*NOVO PEDIDO*\n` +
+        `--------------------------\n` +
+        `${cartItemsText}\n` +
+        `--------------------------\n` +
+        `*Taxa de Entrega:* R$ ${deliveryFee.toFixed(2)}\n` +
+        `*TOTAL:* ${totalFinal}\n\n` +
+        `*Endereço:* ${addressInput.value}`
+    );
 
+    window.open(`https://wa.me/${phone}?text=${message}`, "_blank");
 
-const cartItems = cart.map(item => {
-        return (
-            `${item.name} Quantidade: (${item.quantity}) Preço: R$${item.price} |`
-        )
-    }).join("")
-
-    const message = encodeURIComponent(cartItems)
-    const phone = "61984752125"
-
-    window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
-
-// 3. LIMPEZA TOTAL DO CARRINHO (A CORREÇÃO)
-    cart = []; // Esvazia o array
-    localStorage.removeItem("cart"); // Limpa o banco local
-    updateCartVisuals(); // Zera os números na tela
-    addressInput.value = ""; // Limpa o campo de endereço
-    cartModal.style.display = "none"; // Fecha o modal
-
-
-
-   
-
-
-
-    
+    cart = [];
+    localStorage.removeItem("cart");
+    updateCartVisuals();
+    addressInput.value = "";
+    cartModal.style.display = "none";
 });
 
 // 7. INICIALIZAÇÃO
 document.addEventListener('DOMContentLoaded', () => {
+    if (typeof AOS !== 'undefined') AOS.init({ duration: 800, once: true });
     updateCartVisuals();
+    
     const h = new Date().getHours();
     if (spanItem) {
         const aberto = h >= 18 || h < 7;
         spanItem.className = aberto ? "bg-green-600 px-4 py-1 rounded" : "bg-red-500 px-4 py-1 rounded";
     }
 });
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    AOS.init({
-        duration: 800, // duração da animação
-        once: true     // anima apenas uma vez ao rolar
-    });
-    updateCartVisuals();
-    // ... restante do seu código
-});
-
-
